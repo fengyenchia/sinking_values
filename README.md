@@ -25,6 +25,9 @@ GEMINI_API_KEY=your_gemini_api_key_here
 **On the Shore**
 
 Attribution Code
+
 "On the Shore" Kevin MacLeod (incompetech.com)
+
 Licensed under Creative Commons: By Attribution 4.0 License
+
 http://creativecommons.org/licenses/by/4.0/
