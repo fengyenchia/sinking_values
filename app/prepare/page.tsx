@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { usePsyStore } from "../../store/question"; // 請確認你的 store 相對路徑
+import { usePsyStore } from "../../store/question";
 import FadeIn from "@/components/fadeIn";
 import LoopVideo from "@/components/loopVideo";
 
@@ -61,10 +61,9 @@ export default function Prepare() {
       }
     }
 
-    // 🌟 修正：getAIResult 必須寫在 catch 的外面，確保正常流程會執行它
+    // getAIResult 必須寫在 catch 的外面，確保正常流程會執行它
     getAIResult();
     
-    // 🌟 修正：正確閉合 useEffect 的大括號與依賴陣列
   }, [router, setAiReport, userAnswers, userFinalWords]);
 
   return (

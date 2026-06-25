@@ -94,3 +94,9 @@
     @apply font-sans;
   }
 }
+
+
+::selection {
+  background-color: #4E7FB6;
+  color: #ffffff;
+}

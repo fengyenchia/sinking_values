@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { usePsyStore } from "@/store/question"; // 請確認你的 store 相對路徑
+import { usePsyStore } from "@/store/question";
 
 import ActionButton from '@/components/ActionButton';
 import LoopVideo from "@/components/loopVideo";
@@ -16,7 +16,6 @@ export default function FinalQuestion() {
   // 2. 使用 useEffect 在頁面一載入時，直接在瀏覽器主控台印出來
   useEffect(() => {
     console.log("從前面選擇題傳過來的完整答案物件：", ans);
-    // 如果想看某一特定題目（例如第一題）的明確文字：
   }, [ans]);
 
   
@@ -33,7 +32,7 @@ export default function FinalQuestion() {
       return;
     }
 
-    // 🌟 呼叫你的 Zustand Action 儲存明確文字
+    // 呼叫 Zustand Action 儲存明確文字
     setFinalWords(inputValue);
     
     // 前往結果準備頁面面
@@ -43,7 +42,6 @@ export default function FinalQuestion() {
   return (
     <>
       <div className="w-full h-screen bg-background">
-        {/* 延續使用的海浪影片 */}
         <LoopVideo videoSrc="/video/final.mp4" />
         
         <FadeIn className="w-11/12 md:w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center font-serif">

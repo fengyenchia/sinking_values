@@ -74,7 +74,7 @@ export default function Question() {
               <div className="font-bold text-md md:text-xl mb-2 text-primary">{questionData[questionIndex].title}</div>
 
               {questionData[questionIndex].options.map(
-                (option: { text: string, color?: number[] }, index: number) => {
+                (option: { text: string }, index: number) => {
                   const questionKey = `Q${questionIndex + 1}`;
                   
                   // 將對比條件改為 option.text，字串與字串相比才會正確

@@ -1,4 +1,3 @@
-// /app/api/analyze/route.ts
 import { NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
@@ -39,7 +38,7 @@ export async function POST(request: Request) {
       - 面對沉船，對靈魂留下的最後話語："${finalWords}"
     `;
 
-    // 呼叫 Gemini 2.5 或 1.5 系列中最適合生成文字的 models.generateContent
+    // 呼叫 Gemini 2.5 中最適合生成文字的 models.generateContent
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash", // 速度極快、成本低，非常適合生成測驗 JSON 的主力模型
       contents: userPrompt,
@@ -57,7 +56,7 @@ export async function POST(request: Request) {
     throw new Error("Gemini 回傳內容為空");
     }
 
-    // 🌟 保險清洗：把可能不小心夾帶的 ```json 或 ``` 標籤徹底清除
+    // 保險清洗：把可能不小心夾帶的 ```json 或 ``` 標籤徹底清除
     const cleanedResult = aiResult
     .replace(/^```json\s*/i, "")
     .replace(/^```\s*/i, "")
@@ -70,7 +69,7 @@ export async function POST(request: Request) {
   } catch (error: unknown) {
     console.error("Gemini API Error:", error);
     
-    // 🌟 修正：把 error 轉為標準 Error 物件來安全讀取 message，消滅 any 錯誤
+    // 把 error 轉為標準 Error 物件來安全讀取 message，消滅 any 錯誤
     const errInstance = error instanceof Error ? error : new Error(String(error));
     
     return NextResponse.json(

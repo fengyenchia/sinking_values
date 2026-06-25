@@ -8,7 +8,7 @@ interface AiReport {
   advice: string;
 }
 
-// 🌟 修正：定義單個題目的型別結構
+// 定義單個題目的型別結構
 interface QuestionItem {
   mainTitle: string;
   title: string;
@@ -16,7 +16,7 @@ interface QuestionItem {
 }
 
 interface PsyData {
-  questionData: QuestionItem[]; // 🌟 修正：從 string[] 改為 QuestionItem[]
+  questionData: QuestionItem[]; // 從 string[] 改為 QuestionItem[]
   answers: Record<string, string | null>; // Q1~Q5 的明確文字
   finalWords: string;
   aiReport: AiReport | null;
@@ -127,5 +127,3 @@ export const usePsyStore = create<PsyStore>((set) => ({
     }
   })),
 }));
-
-// 🌟 修正：刪除重複的 export { usePsyStore }

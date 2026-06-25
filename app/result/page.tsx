@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { usePsyStore } from "@/store/question"; // 請確認你的 store 相對路徑
+import { usePsyStore } from "@/store/question";
 import html2canvas from "html2canvas-pro";
 
 import ActionButton from '@/components/ActionButton';
@@ -42,9 +42,6 @@ export default function Result() {
         scale: 2,         // 雙倍高畫質
         backgroundColor: null,
         logging: false,
-        // 強制指定 Canvas 的擷取長寬，確保比例絕對不會被螢幕寬度拉扁
-        width: 420,
-        height: 640
       });
 
       const image = canvas.toDataURL("image/png");
@@ -64,7 +61,6 @@ export default function Result() {
   return (
     <>
       <div className="w-full h-screen overflow-hidden relative bg-[#13131a]">
-        {/* 背景：網頁上實際播放的動態影片 */}
         <LoopVideo videoSrc="/video/final.mp4" />
         
         {/* 1. 網頁上實際顯示的 UI */}
@@ -101,7 +97,7 @@ export default function Result() {
             </div>
           </div>
 
-          {/* 雙功能按鈕組 */}
+          {/* 按鈕 */}
           <div className="w-full text-sm md:text-md max-w-xl flex flex-row gap-4 justify-center">
             <ActionButton 
               text={isCapturing ? "刻印中..." : "保存靈魂印記"} 
