@@ -12,12 +12,12 @@ interface AiReport {
 interface QuestionItem {
   mainTitle: string;
   title: string;
-  options: { text: string }[];
+  options: { text: string }[]; // 物件陣列
 }
 
 interface PsyData {
-  questionData: QuestionItem[]; // 從 string[] 改為 QuestionItem[]
-  answers: Record<string, string | null>; // Q1~Q5 的明確文字
+  questionData: QuestionItem[];
+  answers: Record<string, string | null>; // Q1~Q5 的明確文字(鍵的型別是 string；值的型別是 string 或 null)
   finalWords: string;
   aiReport: AiReport | null;
 }

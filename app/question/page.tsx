@@ -19,7 +19,6 @@ export default function Question() {
 
   const [questionIndex, setQuestionIndex] = useState(0);
   const questionPercent = ((questionIndex + 1) / questionData.length) * 100;
-  const [warning, setWarning] = useState("");
 
   useEffect(() => {
     if (ans && questionData.length >= 5) {
@@ -34,7 +33,6 @@ export default function Question() {
   function nextQuestion(optionText: string) {
     const questionKey = `Q${questionIndex + 1}`;
     setPsyAnswer(questionKey, optionText);
-    setWarning("");
     
     if (questionIndex === questionData.length - 1) {
       router.push("/finalQuestion");
@@ -99,9 +97,7 @@ export default function Question() {
             </div>
             
 
-            {/* 功能按鈕 */}
-            {warning && <div className="text-xs font-bold text-red-400">{warning}</div>}
-            
+            {/* 功能按鈕 */}            
             <div className="w-5/6 md:w-3/5 flex justify-start mt-2">
               <ActionButton 
                 text="返回" 
